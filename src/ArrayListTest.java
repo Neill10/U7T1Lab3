@@ -1,30 +1,21 @@
 import java.util.ArrayList;
+import java.util.Arrays; // you need this to use Arrays.asList()
 
 public class ArrayListTest
 {
     public static void main(String[] args)
     {
-        ArrayList<String> names = new ArrayList<String>();
-        names.add("Jamal");
-        names.add("Emily");
-        names.add("Destiny");
-        names.add("Mateo");
+        ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
 
-        //COMPLETE ME: print each name using standard for loop
-        for (
+        //COMPLETE ME!
+        for(int i = 0; i < nums.size();i++)
         {
-
+            if(i + 2 < nums.size())
+            {
+                int sum = nums.get(i + 1) + nums.get(i+2);
+                nums.set(i,sum);
+            }
         }
-        //COMPLETE ME: print each name (again!) using enhanced for loop
-        for (
-        {
-
-        }
-        //COMPLETE ME: print each name (a third time!) using a while loop
-        int i =
-        while (
-                {
-
-                }
+        System.out.println(nums);
     }
 }
