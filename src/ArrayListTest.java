@@ -1,21 +1,26 @@
 import java.util.ArrayList;
-import java.util.Arrays; // you need this to use Arrays.asList()
 
 public class ArrayListTest
 {
     public static void main(String[] args)
     {
-        ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
+        ArrayList<Integer> ints = new ArrayList<Integer>();
+        ints.add(0, 1);
+        ints.add(0, 2);
+        ints.add(0, 3);
+        ints.add(0, 4);
+        ints.add(0, 5);
+        ints.add(0, 6);
 
-        //COMPLETE ME!
-        for(int i = 0; i < nums.size();i++)
+        ArrayList<Integer> newInts = new ArrayList<Integer>();
+
+        // traverse the entire ints array backwards
+        for (int i = ints.size() - 1; i >= 0; i--)
         {
-            if(i + 2 < nums.size())
-            {
-                int sum = nums.get(i + 1) + nums.get(i+2);
-                nums.set(i,sum);
-            }
+            newInts.add(ints.get(i));
         }
-        System.out.println(nums);
+
+        System.out.println(ints);
+        System.out.println(newInts);
     }
 }
