@@ -30,28 +30,32 @@ public class CustomerCheck
      *  returns false otherwise, as described in part (b) */
     public boolean couponApplies()
     {
-        if(totalPrices() > 40)
+        if(totalPrices() < 40)
         {
             return false;
         }
         for(MenuItem i : check)
         {
-            if(i.isDailySpecial() == true)
+            if(i.isDailySpecial())
             {
                 return false;
             }
         }
+        return true;
     }
 
     /** Calculates the final cost of this check, as described in part (c) */
     public double calculateCheck()
     {
         double cost = totalPrices();
+        double finalCost = cost;
+        double tip = 0;
+        double discount = 0;
         int customers = 0;
 
         for(MenuItem i : check)
         {
-            if(i.isEntree() == true)
+            if(i.isEntree())
             {
                 customers++;
             }
@@ -59,13 +63,14 @@ public class CustomerCheck
 
         if(customers >= 6)
         {
-            cost = cost * .2;
+            tip = cost * 0.2;
         }
 
-        if(check.couponApplies() == true)
+        if(couponApplies())
         {
-            cost = cost * .75;
+            discount = cost * .25;
         }
-        return cost;
+
+        return finalCost + tip - discount;
     }
 }
